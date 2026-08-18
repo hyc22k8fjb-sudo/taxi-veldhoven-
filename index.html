@@ -1,85 +1,137 @@
 <!doctype html>
 <html lang="nl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Taxi Veldhoven – eenvoudig een taxi reserveren in Veldhoven, Eindhoven en omgeving." />
-  <title>Taxi Veldhoven — Reserveren</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Taxi Veldhoven – betrouwbare taxi in Veldhoven, Eindhoven en omgeving. Airportvervoer, zakelijke ritten en lange afstanden.">
+  <meta name="theme-color" content="#071a36">
+  <title>Taxi Veldhoven | Taxi, airportvervoer & reserveren</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="brand"><span class="brand-taxi">Taxi</span> <span>Veldhoven</span><small>Veldhoven • Eindhoven • Eindhoven Airport</small></div>
-    <a class="header-call" href="tel:+31600000000">📞 Bellen</a>
+  <header class="site-header" id="home">
+    <a class="brand" href="#home" aria-label="Taxi Veldhoven home">
+      <span class="brand-taxi">Taxi</span> Veldhoven
+      <small>Veldhoven · Eindhoven · Eindhoven Airport</small>
+    </a>
+    <nav class="desktop-nav" aria-label="Hoofdnavigatie">
+      <a href="#diensten">Diensten</a><a href="#airport">Airport</a><a href="#tarieven">Tarieven</a><a href="#over-ons">Over ons</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a class="header-call" href="tel:+31643143072">☎ Bellen</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu openen" aria-expanded="false">☰</button>
+    </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <div>
-        <span class="eyebrow">🚕 Privé taxi • 24/7 aanvragen</span>
-        <h1>Waar mogen we je ophalen?</h1>
-        <p>Vul je ritgegevens in. Je ziet vooraf één duidelijke vaste prijs.</p>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-head"><b><span class="brand-taxi">Taxi</span> Veldhoven</b><button id="menuClose" aria-label="Menu sluiten">×</button></div>
+    <a href="#home">Home</a><a href="#diensten">Diensten</a><a href="#airport">Airport</a><a href="#tarieven">Tarieven</a><a href="#over-ons">Over ons</a><a href="#contact">Contact</a>
+    <div class="mobile-menu-actions"><a class="btn light" href="tel:+31643143072">☎ Bel ons direct</a><a class="btn whatsapp" href="https://wa.me/31643143072" target="_blank" rel="noopener">◉ WhatsApp</a><a class="btn gold" href="#boeken">▣ Boek online</a></div>
+  </div>
+
+  <main>
+    <section class="hero-section">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow">• ACTIEF IN VELDHOVEN, EINDHOVEN & OMGEVING</span>
+          <h1>Taxi nodig in <span>Veldhoven</span> of Eindhoven?</h1>
+          <p>Veldhoven · Eindhoven · Eindhoven Airport & omgeving</p>
+          <div class="hero-actions">
+            <a class="hero-btn light" href="tel:+31643143072">☎ <b>Bel ons</b><small>DIRECT CONTACT</small></a>
+            <a class="hero-btn whatsapp" href="https://wa.me/31643143072" target="_blank" rel="noopener">◉ <b>WhatsApp</b><small>STUUR EEN BERICHT</small></a>
+            <a class="hero-btn gold" href="#boeken">▣ <b>Boek online</b><small>FORMULIER INVULLEN</small></a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <form id="bookingForm" novalidate>
-      <section class="card">
-        <div class="section-title">📍 <span>Je rit</span></div>
-        <div class="grid two">
-          <label class="field required">Ophaaladres<input id="pickup" name="pickup" autocomplete="street-address" placeholder="Straat en huisnummer, stad" required /></label>
-          <label class="field required">Bestemming<input id="destination" name="destination" autocomplete="street-address" placeholder="Bijv. Eindhoven Airport of straat en stad" required /></label>
+    <div class="trust-strip"><span>✓ Persoonlijke service</span><span>✓ Vooraf reserveren</span><span>✓ Duidelijke afspraken</span><span>✓ Lokale service</span></div>
+
+    <section class="booking-wrap section" id="boeken">
+      <div class="section-heading dark"><span>UW RIT</span><h2>Een taxi reserveren?</h2><p>Vul uw gegevens in en vraag eenvoudig uw rit aan.</p></div>
+      <form id="bookingForm" novalidate>
+        <div class="form-card">
+          <div class="form-section-title">📍 <b>Je rit</b></div>
+          <div class="grid two">
+            <label class="field required">Ophaaladres<input id="pickup" name="pickup" autocomplete="street-address" placeholder="Straat en huisnummer, stad" required></label>
+            <label class="field required">Bestemming<input id="destination" name="destination" autocomplete="street-address" placeholder="Bijv. Eindhoven Airport of straat en stad" required></label>
+          </div>
+          <p class="address-help">Tip: vul straat + huisnummer + plaats in. We gebruiken de volledige tekst voor de aanvraag, niet alleen postcode of plaats.</p>
+
+          <div class="form-section-title">🗓️ <b>Wanneer?</b></div>
+          <div class="grid two">
+            <label class="field required">Datum<input id="date" name="date" type="date" required></label>
+            <label class="field required">Tijd van ophalen<input id="time" name="time" type="time" required></label>
+          </div>
+
+          <div class="form-section-title">👥 <b>Details</b></div>
+          <div class="grid two">
+            <label class="field required">Aantal personen<select id="persons" name="persons" required></select></label>
+            <label class="field">🧳 Bagage<select id="luggage" name="luggage"><option>Geen of weinig bagage</option><option>1 koffer</option><option>Meerdere koffers</option><option>Veel bagage</option></select></label>
+          </div>
+
+          <div class="form-section-title">👤 <b>Uw gegevens</b></div>
+          <div class="grid two">
+            <label class="field required">Naam<input id="name" name="name" autocomplete="name" placeholder="Voor- en achternaam" required></label>
+            <label class="field required">Telefoonnummer<input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="06 12345678" required></label>
+            <label class="field">✉ E-mailadres <em>optioneel</em><input id="email" name="email" type="email" autocomplete="email" placeholder="uw@emailadres.nl"></label>
+            <label class="field airport-only hidden" id="flightWrap">✈ Vluchtnummer <em>optioneel</em><input id="flight" name="flight" placeholder="Bijv. KL1234"></label>
+          </div>
+          <label class="field">💬 Opmerking <em>optioneel</em><textarea id="note" name="note" rows="3" placeholder="Bijzonderheden of wensen"></textarea></label>
+
+          <div class="form-section-title">💳 <b>Betaalwijze</b></div>
+          <div class="payment-grid">
+            <label class="payment selected"><input type="radio" name="payment" value="Contant / PIN" checked><span>💶</span><b>Contant / PIN</b><small>Betaal in de taxi of met PIN</small></label>
+            <label class="payment"><input type="radio" name="payment" value="Online betalen"><span>💳</span><b>Online betalen</b><small>10% aanbetaling, rest in taxi</small></label>
+          </div>
         </div>
-      </section>
+        <div class="price-card" aria-live="polite"><div><span class="price-label">VASTE PRIJS</span><strong id="price">€—</strong><span class="price-note">Geen verrassingen achteraf</span></div><div id="priceMessage" class="price-message">Vul je ophaaladres en bestemming in voor de prijs.</div></div>
+        <div id="formError" class="form-error" role="alert" hidden></div>
+        <button class="cta" type="submit">🚕 Rit aanvragen <span id="ctaPrice">Vaste prijs: €—</span></button>
+        <p class="trust">🔒 Uw gegevens worden veilig verwerkt en alleen gebruikt voor uw ritaanvraag.</p>
+      </form>
+      <section id="confirmation" class="confirmation hidden"></section>
+    </section>
 
-      <section class="card">
-        <div class="section-title">🗓️ <span>Wanneer?</span></div>
-        <div class="grid two">
-          <label class="field required">Datum<input id="date" name="date" type="date" required /></label>
-          <label class="field required">Tijd van ophalen<input id="time" name="time" type="time" required /></label>
-        </div>
-      </section>
+    <section class="section services" id="diensten">
+      <div class="section-heading"><span>ONZE DIENSTEN</span><h2>Onze taxidiensten</h2><p>Van een korte rit in Veldhoven tot vervoer naar Schiphol. Wij regelen het voor u.</p></div>
+      <div class="service-grid">
+        <article class="service-card"><div class="service-icon">🚕</div><h3>Lokale taxi</h3><p>Taxi in Veldhoven, Eindhoven en omgeving. Betrouwbaar en op tijd.</p><a href="#boeken">Reserveren →</a></article>
+        <article class="service-card"><div class="service-icon">✈️</div><h3>Luchthavenvervoer</h3><p>Comfortabel vervoer van en naar Eindhoven Airport, Schiphol en andere luchthavens.</p><a href="#airport">Reserveren →</a></article>
+        <article class="service-card"><div class="service-icon">💼</div><h3>Zakelijk vervoer</h3><p>Professioneel taxivervoer voor zakelijke ritten. Punctueel en discreet.</p><a href="#boeken">Reserveren →</a></article>
+        <article class="service-card"><div class="service-icon">🛣️</div><h3>Lange ritten</h3><p>Taxivervoer voor langere afstanden, door heel Nederland en naar het buitenland.</p><a href="#boeken">Reserveren →</a></article>
+      </div>
+    </section>
 
-      <section class="card">
-        <div class="section-title">👥 <span>Details</span></div>
-        <div class="grid two">
-          <label class="field required">Aantal personen<select id="persons" name="persons" required></select></label>
-          <label class="field">🧳 Bagage<select id="luggage" name="luggage"><option>Geen of weinig bagage</option><option>1 koffer</option><option>Meerdere koffers</option><option>Veel bagage</option></select></label>
-        </div>
-      </section>
+    <section class="why section" id="over-ons">
+      <div class="section-heading dark"><span>WAAROM WIJ?</span><h2>Meer dan alleen een rit.</h2><p>Taxi Veldhoven staat voor persoonlijk, betrouwbaar taxivervoer in Veldhoven, Eindhoven en omgeving. Geen groot anoniem bedrijf, maar echte aandacht voor u als klant.</p></div>
+      <div class="why-grid"><div><b>👤 Persoonlijke service</b><p>Geen automatisch systeem. U wordt persoonlijk te woord gestaan.</p></div><div><b>🚕 Comfortabele rit</b><p>U reist in een schone, goed onderhouden taxi. Uw comfort staat voorop.</p></div><div><b>💬 Duidelijke communicatie</b><p>Wij communiceren helder over uw rit. Geen verrassingen achteraf.</p></div><div><b>📱 Eenvoudig reserveren</b><p>Online, via WhatsApp of telefonisch. Snel en zonder gedoe.</p></div></div>
+    </section>
 
-      <section class="card">
-        <div class="section-title">👤 <span>Jouw gegevens</span></div>
-        <div class="grid two">
-          <label class="field required">Naam<input id="name" name="name" autocomplete="name" placeholder="Voor- en achternaam" required /></label>
-          <label class="field required">Telefoonnummer<input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="06 12345678 of +31..." required /></label>
-          <label class="field">✉️ E-mailadres <em>optioneel</em><input id="email" name="email" type="email" autocomplete="email" placeholder="uw@emailadres.nl" /></label>
-          <label class="field airport-only hidden" id="flightWrap">✈️ Vluchtnummer <em>optioneel</em><input id="flight" name="flight" placeholder="Bijv. KL1234" /></label>
-        </div>
-        <label class="field">💬 Opmerking <em>optioneel</em><textarea id="note" name="note" rows="3" placeholder="Bijzonderheden of wensen"></textarea></label>
-      </section>
+    <section class="section how"><div class="section-heading"><span>ZO EENVOUDIG</span><h2>Zo werkt het</h2></div><div class="steps"><div><strong>01</strong><h3>Boek uw rit</h3><p>Reserveer online via het formulier, stuur een WhatsApp of bel ons. Snel geregeld.</p></div><div><strong>02</strong><h3>Bevestiging</h3><p>U ontvangt de bevestiging met alle details van uw rit. Geen onduidelijkheid.</p></div><div><strong>03</strong><h3>Wij halen u op</h3><p>Uw chauffeur staat op het afgesproken tijdstip voor de deur. Stipt en vriendelijk.</p></div></div></section>
 
-      <section class="card">
-        <div class="section-title">💳 <span>Betaalwijze</span></div>
-        <div class="payment-grid">
-          <label class="payment selected"><input type="radio" name="payment" value="Contant / PIN" checked /><span>💶</span><b>Contant / PIN</b><small>Betalen in de taxi</small></label>
-          <label class="payment"><input type="radio" name="payment" value="Online betalen" /><span>💳</span><b>Online betalen</b><small>10% aanbetaling, rest in taxi</small></label>
-        </div>
-      </section>
+    <section class="airport-visual section" aria-label="Luchthavenvervoer"><div class="airport-photo photo-one"></div><div class="airport-photo photo-two"></div></section>
 
-      <section class="price-card" aria-live="polite">
-        <div><span class="price-label">VASTE PRIJS</span><strong id="price">€—</strong><span class="price-note">Geen verrassingen achteraf</span></div>
-        <div id="priceMessage" class="price-message">Vul je ritgegevens in voor de prijs.</div>
-      </section>
+    <section class="section airport-section" id="airport"><div class="section-heading"><span>LUCHTHAVENVERVOER</span><h2>Vervoer van en naar de luchthaven</h2><p>Stressvrij op weg naar uw vlucht. Geef uw vluchtgegevens door en wij zorgen dat u op tijd aankomt. Ophalen na de landing is ook mogelijk.</p></div><div class="airport-grid"><button class="airport-card" data-destination="Eindhoven Airport" data-price="39">✈️<b>Eindhoven Airport</b><span>Vaste prijs: €39</span></button><button class="airport-card" data-destination="Amsterdam Schiphol" data-price="229">✈️<b>Amsterdam Schiphol</b><span>Vaste prijs: €229</span></button><button class="airport-card" data-destination="Brussel Zaventem" data-price="219">✈️<b>Brussel Zaventem</b><span>Vaste prijs: €219</span></button><button class="airport-card" data-destination="Düsseldorf Airport" data-price="219">✈️<b>Düsseldorf Airport</b><span>Vaste prijs: €219</span></button><button class="airport-card" data-destination="Andere luchthaven" data-price="">✈️<b>Andere luchthavens op aanvraag</b><span>Prijs op aanvraag</span></button></div><a class="dark-book" href="#boeken">✈ Boek luchthavenvervoer</a></section>
 
-      <div id="formError" class="form-error" role="alert" hidden></div>
-      <button class="cta" type="submit">🚕 Rit aanvragen <span id="ctaPrice">Vaste prijs: €—</span></button>
-      <p class="trust">🔒 Je gegevens worden alleen gebruikt om je ritaanvraag te verwerken.</p>
-    </form>
+    <section class="workarea"><div class="section-heading dark"><span>WERKGEBIED</span></div><div class="chips"><span>Veldhoven</span><span>Eindhoven</span><span>Waalre</span><span>Eersel</span><span>Best</span><span>Geldrop</span><span>Mierlo</span><span>Oirschot</span><span>Son en Breugel</span><span>Bergeijk</span><span>Eindhoven Airport</span><span>Heel Nederland</span></div></section>
 
-    <section id="confirmation" class="confirmation hidden"></section>
+    <section class="section reviews"><div class="section-heading"><span>BEZOEKERSERVARINGEN</span><h2>Wat klanten zeggen</h2></div><div class="review-box"><b>G</b><strong> GOOGLE REVIEWS</strong><h3>Uw mening telt</h3><p>Tevreden met onze taxirit? Laat binnenkort uw beoordeling achter op Google. Uw ervaring helpt andere klanten bij hun keuze.</p></div></section>
+
+    <section class="section faq"><div class="section-heading"><span>VRAGEN</span><h2>Veelgestelde vragen</h2><p>Staat uw vraag er niet bij? Bel of WhatsApp ons gerust.</p></div><div class="faq-list">
+      <details><summary>Hoe kan ik een taxi reserveren?</summary><p>U kunt online reserveren via het formulier, telefonisch via <a href="tel:+31643143072">+31 6 43143072</a> of via WhatsApp.</p></details>
+      <details><summary>Kan ik telefonisch reserveren?</summary><p>Ja. Bel ons op <a href="tel:+31643143072">+31 6 43143072</a>. Wij helpen u direct verder met uw reservering.</p></details>
+      <details><summary>Kan ik via WhatsApp reserveren?</summary><p>Ja, stuur uw ophaaladres, bestemming, datum, tijd, aantal personen en uw naam via WhatsApp.</p></details>
+      <details><summary>Kan ik een taxi van of naar Eindhoven Airport boeken?</summary><p>Ja. Eindhoven Airport is een van onze belangrijkste bestemmingen. De getoonde vaste prijs voor Eindhoven Airport is €39.</p></details>
+      <details><summary>Rijden jullie ook langere afstanden?</summary><p>Ja, wij rijden door heel Nederland en naar het buitenland. Voor andere lange ritten kunt u de prijs vooraf aanvragen.</p></details>
+      <details><summary>Kan ik een taxi vooraf reserveren?</summary><p>Ja, vooraf reserveren kan. Vul datum en tijd in op het formulier, zodat de rit duidelijk ingepland kan worden.</p></details>
+      <details><summary>Hoe kan ik betalen?</summary><p>Contant of met PIN in de taxi. Indien online betalen beschikbaar is voor uw aanvraag, geldt een aanbetaling van 10% en betaalt u het resterende bedrag in de taxi.</p></details>
+    </div></section>
+
+    <section class="cta-section"><div><span>KLAAR OM TE VERTREKKEN?</span><h2>Uw taxi staat binnen enkele minuten voor de deur.</h2><p>Boek snel online, stuur een WhatsApp of bel ons direct. Persoonlijke service, duidelijke afspraken.</p></div><a class="dark-book" href="#boeken">▣ Boek nu uw taxi</a><div class="bottom-contact"><h3>Een taxi nodig?</h3><p>Bel, WhatsApp of boek direct online. Wij staan voor u klaar.</p><a href="tel:+31643143072">☎ Bel</a><a href="https://wa.me/31643143072" target="_blank" rel="noopener">◉ WhatsApp</a><a href="#boeken">▣ Boek online</a></div></section>
   </main>
 
-  <footer>© <span id="year"></span> Taxi Veldhoven • Veldhoven · Eindhoven · Eindhoven Airport</footer>
+  <footer id="contact"><div class="footer-grid"><div><h3><span class="brand-taxi">Taxi</span> Veldhoven</h3><p>Veldhoven · Eindhoven · Eindhoven Airport & omgeving</p><p>Betrouwbaar taxivervoer in Veldhoven, Eindhoven en omgeving.<br>Lokale ritten, luchthavenvervoer en langeafstandsritten.</p></div><div><h4>DIENSTEN</h4><a href="#diensten">Lokale taxi</a><a href="#airport">Luchthavenvervoer</a><a href="#diensten">Zakelijk vervoer</a><a href="#diensten">Lange ritten</a></div><div><h4>INFORMATIE</h4><a href="#tarieven">Tarieven</a><a href="#boeken">Reserveren</a><a href="#faq">Veelgestelde vragen</a></div><div><h4>CONTACT</h4><a href="tel:+31643143072">+31643143072</a><a href="https://wa.me/31643143072" target="_blank" rel="noopener">WhatsApp</a><span>Veldhoven, Noord-Brabant</span></div><div><h4>JURIDISCH</h4><a href="#">Privacybeleid</a><a href="#">Algemene voorwaarden</a><a href="#">Cookiebeleid</a></div></div><div class="footer-bottom">© <span id="year"></span> Taxi Veldhoven — All rights reserved <span>Veldhoven · Eindhoven · omgeving</span></div></footer>
   <script src="app.js"></script>
 </body>
 </html>
