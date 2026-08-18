@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Taxi Veldhoven – eenvoudig een taxi reserveren in Veldhoven, Eindhoven en omgeving." />
+  <title>Taxi Veldhoven — Reserveren</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><span class="brand-taxi">Taxi</span> <span>Veldhoven</span><small>Veldhoven • Eindhoven • Eindhoven Airport</small></div>
+    <a class="header-call" href="tel:+31600000000">📞 Bellen</a>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">🚕 Privé taxi • 24/7 aanvragen</span>
+        <h1>Waar mogen we je ophalen?</h1>
+        <p>Vul je ritgegevens in. Je ziet vooraf één duidelijke vaste prijs.</p>
+      </div>
+    </section>
+
+    <form id="bookingForm" novalidate>
+      <section class="card">
+        <div class="section-title">📍 <span>Je rit</span></div>
+        <div class="grid two">
+          <label class="field required">Ophaaladres<input id="pickup" name="pickup" autocomplete="street-address" placeholder="Straat en huisnummer, stad" required /></label>
+          <label class="field required">Bestemming<input id="destination" name="destination" autocomplete="street-address" placeholder="Bijv. Eindhoven Airport of straat en stad" required /></label>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-title">🗓️ <span>Wanneer?</span></div>
+        <div class="grid two">
+          <label class="field required">Datum<input id="date" name="date" type="date" required /></label>
+          <label class="field required">Tijd van ophalen<input id="time" name="time" type="time" required /></label>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-title">👥 <span>Details</span></div>
+        <div class="grid two">
+          <label class="field required">Aantal personen<select id="persons" name="persons" required></select></label>
+          <label class="field">🧳 Bagage<select id="luggage" name="luggage"><option>Geen of weinig bagage</option><option>1 koffer</option><option>Meerdere koffers</option><option>Veel bagage</option></select></label>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-title">👤 <span>Jouw gegevens</span></div>
+        <div class="grid two">
+          <label class="field required">Naam<input id="name" name="name" autocomplete="name" placeholder="Voor- en achternaam" required /></label>
+          <label class="field required">Telefoonnummer<input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="06 12345678 of +31..." required /></label>
+          <label class="field">✉️ E-mailadres <em>optioneel</em><input id="email" name="email" type="email" autocomplete="email" placeholder="uw@emailadres.nl" /></label>
+          <label class="field airport-only hidden" id="flightWrap">✈️ Vluchtnummer <em>optioneel</em><input id="flight" name="flight" placeholder="Bijv. KL1234" /></label>
+        </div>
+        <label class="field">💬 Opmerking <em>optioneel</em><textarea id="note" name="note" rows="3" placeholder="Bijzonderheden of wensen"></textarea></label>
+      </section>
+
+      <section class="card">
+        <div class="section-title">💳 <span>Betaalwijze</span></div>
+        <div class="payment-grid">
+          <label class="payment selected"><input type="radio" name="payment" value="Contant / PIN" checked /><span>💶</span><b>Contant / PIN</b><small>Betalen in de taxi</small></label>
+          <label class="payment"><input type="radio" name="payment" value="Online betalen" /><span>💳</span><b>Online betalen</b><small>10% aanbetaling, rest in taxi</small></label>
+        </div>
+      </section>
+
+      <section class="price-card" aria-live="polite">
+        <div><span class="price-label">VASTE PRIJS</span><strong id="price">€—</strong><span class="price-note">Geen verrassingen achteraf</span></div>
+        <div id="priceMessage" class="price-message">Vul je ritgegevens in voor de prijs.</div>
+      </section>
+
+      <div id="formError" class="form-error" role="alert" hidden></div>
+      <button class="cta" type="submit">🚕 Rit aanvragen <span id="ctaPrice">Vaste prijs: €—</span></button>
+      <p class="trust">🔒 Je gegevens worden alleen gebruikt om je ritaanvraag te verwerken.</p>
+    </form>
+
+    <section id="confirmation" class="confirmation hidden"></section>
+  </main>
+
+  <footer>© <span id="year"></span> Taxi Veldhoven • Veldhoven · Eindhoven · Eindhoven Airport</footer>
+  <script src="app.js"></script>
+</body>
+</html>
